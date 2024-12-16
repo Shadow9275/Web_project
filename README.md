@@ -12,8 +12,7 @@ Browse our catalog, add products to your cart, and gear up to achieve your fitne
 
 ## 🚀 Live Demo
 
-Check out the live demo of the project here:  
-🔗 [SportGearPro Live Demo](https://shadow9275.github.io/sportgearpro/)
+The live demo does not work due to an unknown error
 
 ---
 
@@ -47,19 +46,6 @@ Users can navigate through product categories, view product details, manage thei
 
 ---
 
-## 📷 Screenshots
-
-### **Home Page**
-![Home Page](https://via.placeholder.com/800x400.png?text=Home+Page)
-
-### **Product Catalog**
-![Product Catalog](https://via.placeholder.com/800x400.png?text=Product+Catalog)
-
-### **Shopping Cart**
-![Shopping Cart](https://via.placeholder.com/800x400.png?text=Shopping+Cart)
-
----
-
 ## 🧰 Technologies Used
 
 - **Vue.js** (Frontend framework)
@@ -74,7 +60,9 @@ Users can navigate through product categories, view product details, manage thei
 
 Follow these steps to run the project locally:
 
+
 ### 1. Clone the repository:
+
 ```bash
 git clone https://github.com/Shadow9275/sportgearpro.git
 cd sportgearpro
