@@ -1,35 +1,21 @@
 <template>
-  <div class="card product-item h-100">
-    <img :src="selectedColor.image" :alt="product.name" class="card-img-top" />
-
-    <div class="card-body d-flex flex-column">
+  <div class="card h-100 product-item">
+    <img :src="selectedColor.image" class="card-img-top" :alt="product.name" />
+    <div class="card-body">
       <h5 class="card-title">{{ product.name }}</h5>
       <p class="card-text">{{ product.description }}</p>
-      <h6 class="text-success mb-3">{{ product.price }} €</h6>
-
-      <div class="d-flex mb-3">
+      <p class="text-success">{{ product.price.toFixed(2) }} $</p>
+      <div class="d-flex mb-2">
         <span
           v-for="(color, index) in product.colors"
           :key="index"
-          class="color-box"
+          class="color-box me-2"
           :style="{ backgroundColor: color.name.toLowerCase() }"
           @click="selectColor(color)"
           :class="{ active: selectedColor.name === color.name }"
         ></span>
       </div>
-
-      <div class="d-flex align-items-center">
-        <input
-          type="number"
-          v-model.number="quantity"
-          min="1"
-          class="form-control quantity-input me-2"
-          style="width: 80px;"
-        />
-        <button class="btn btn-primary mt-auto" @click="addToCart">
-          Ajouter au panier
-        </button>
-      </div>
+      <button class="btn btn-primary w-100" @click="addToCart">Add to Cart</button>
     </div>
   </div>
 </template>
@@ -38,15 +24,11 @@
 export default {
   name: "ProductItem",
   props: {
-    product: {
-      type: Object,
-      required: true,
-    },
+    product: Object,
   },
   data() {
     return {
       selectedColor: this.product.colors[0],
-      quantity: 1,
     };
   },
   methods: {
@@ -57,30 +39,8 @@ export default {
       this.$emit("add-to-cart", {
         ...this.product,
         selectedColor: this.selectedColor,
-        quantity: this.quantity,
       });
     },
   },
 };
 </script>
-
-<style scoped>
-.color-box {
-  width: 20px;
-  height: 20px;
-  border: 1px solid #ddd;
-  border-radius: 50%;
-  margin-right: 10px;
-  cursor: pointer;
-}
-.color-box.active {
-  border: 2px solid #0d6efd;
-}
-.card-img-top {
-  height: 200px;
-  object-fit: cover;
-}
-.quantity-input {
-  text-align: center;
-}
-</style>

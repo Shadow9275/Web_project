@@ -1,85 +1,82 @@
 <template>
-  <div class="home">
-    <!-- En-tête -->
-    <SiteHeader />
-
-    <!-- Contenu principal -->
-    <main class="py-4">
-      <div class="container">
-        <h1 class="text-center text-primary mb-4">Bienvenue sur SportGearPro</h1>
-        <p class="text-center lead">
-          Découvrez notre sélection de matériel sportif de haute qualité pour vos entraînements.
+  <div>
+    <!-- Hero Section -->
+    <section class="hero-section text-white text-center">
+      <div class="container py-5">
+        <h1 class="display-3 fw-bold mb-4">Welcome to SportGearPro</h1>
+        <p class="lead mb-4">
+          Discover top-quality sports equipment to reach your goals and perform at your best!
         </p>
-
-        <!-- Liste des produits -->
-        <ProductList @add-to-cart="addToCart" />
-
-        <!-- Panier d'achat -->
-        <ShoppingCart :cart="cart" />
+        <router-link to="/catalog" class="btn btn-primary btn-lg">Explore Our Catalog</router-link>
       </div>
-    </main>
+    </section>
 
-    <!-- Pied de page -->
-    <SiteFooter />
+    <!-- Featured Products Section -->
+    <section class="featured-products py-5">
+      <div class="container">
+        <h2 class="text-center text-primary mb-5">Popular Products</h2>
+        <div class="row">
+          <!-- Product 1 -->
+          <div class="col-12 col-md-4 mb-4">
+            <div class="card product-card">
+              <img
+                src="@/assets/images/baskette1.jpg"
+                alt="Basketball"
+                class="card-img-top"
+              />
+              <div class="card-body text-center">
+                <h5 class="card-title">Basketball</h5>
+                <p class="text-success">$29.99</p>
+                <router-link to="/catalog" class="btn btn-outline-primary btn-sm">
+                  View More
+                </router-link>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 2 -->
+          <div class="col-12 col-md-4 mb-4">
+            <div class="card product-card">
+              <img
+                src="@/assets/images/haltere1.jpg"
+                alt="Dumbbells"
+                class="card-img-top"
+              />
+              <div class="card-body text-center">
+                <h5 class="card-title">Dumbbells</h5>
+                <p class="text-success">$19.99</p>
+                <router-link to="/catalog" class="btn btn-outline-primary btn-sm">
+                  View More
+                </router-link>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 3 -->
+          <div class="col-12 col-md-4 mb-4">
+            <div class="card product-card">
+              <img
+                src="@/assets/images/tapis1.jpg"
+                alt="Yoga Mat"
+                class="card-img-top"
+              />
+              <div class="card-body text-center">
+                <h5 class="card-title">Yoga Mat</h5>
+                <p class="text-success">$24.99</p>
+                <router-link to="/catalog" class="btn btn-outline-primary btn-sm">
+                  View More
+                </router-link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
 <script>
-// Importation des composants
-import SiteHeader from "@/components/SiteHeader.vue";
-import SiteFooter from "@/components/SiteFooter.vue";
-import ProductList from "@/components/ProductList.vue";
-import ShoppingCart from "@/components/ShoppingCart.vue";
-
 export default {
   name: "HomeView",
-  components: {
-    SiteHeader,
-    SiteFooter,
-    ProductList,
-    ShoppingCart,
-  },
-  data() {
-    return {
-      cart: [], // Tableau pour stocker les produits ajoutés au panier
-    };
-  },
-  methods: {
-    // Ajouter un produit au panier
-    addToCart(product) {
-      // Vérifie si le produit avec la même couleur existe déjà
-      const existingProduct = this.cart.find(
-        (item) =>
-          item.id === product.id && item.selectedColor.name === product.selectedColor.name
-      );
-
-      if (existingProduct) {
-        // Incrémente la quantité si le produit existe
-        existingProduct.quantity += 1;
-      } else {
-        // Ajoute un nouveau produit au panier avec une quantité de 1
-        this.cart.push({ ...product, quantity: 1 });
-      }
-    },
-  },
 };
 </script>
-
-<style scoped>
-/* Style pour la vue principale */
-main {
-  background-color: #f8f9fa; /* Fond clair */
-  padding: 2rem 0;
-}
-
-h1 {
-  font-size: 2.5rem;
-  font-weight: bold;
-}
-
-p.lead {
-  font-size: 1.2rem;
-  color: #555;
-  margin-bottom: 2rem;
-}
-</style>

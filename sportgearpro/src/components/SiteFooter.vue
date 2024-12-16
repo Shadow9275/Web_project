@@ -1,6 +1,19 @@
 <template>
-  <footer class="bg-dark text-light text-center py-3">
-    <p>&copy; 2024 SportGearPro - Tous droits réservés.</p>
+  <footer class="bg-dark text-white mt-4">
+    <div class="container py-3 text-center">
+      <p class="mb-1">&copy; 2024 SportGearPro. All Rights Reserved.</p>
+      <ul class="list-inline">
+        <li class="list-inline-item">
+          <a href="#" class="text-white text-decoration-none">Privacy Policy</a>
+        </li>
+        <li class="list-inline-item">
+          <a href="#" class="text-white text-decoration-none">Terms of Service</a>
+        </li>
+        <li class="list-inline-item">
+          <a href="#" class="text-white text-decoration-none">Contact</a>
+        </li>
+      </ul>
+    </div>
   </footer>
 </template>
 
@@ -9,9 +22,3 @@ export default {
   name: "SiteFooter",
 };
 </script>
-
-<style scoped>
-footer {
-  font-size: 0.9rem;
-}
-</style>

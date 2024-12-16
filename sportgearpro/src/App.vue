@@ -1,82 +1,32 @@
 <template>
   <div id="app">
+    <!-- Site Header -->
     <SiteHeader />
+
+    <!-- Main Content -->
     <main class="py-4">
-      <ProductList @add-to-cart="addToCart" />
-      <ShoppingCart :cart="cart" @update-cart="updateCart" />
+      <router-view />
     </main>
+
+    <!-- Site Footer -->
     <SiteFooter />
   </div>
 </template>
 
 <script>
-import SiteHeader from "./components/SiteHeader.vue";
-import SiteFooter from "./components/SiteFooter.vue";
-import ProductList from "./components/ProductList.vue";
-import ShoppingCart from "./components/ShoppingCart.vue";
+import SiteHeader from "@/components/SiteHeader.vue";
+import SiteFooter from "@/components/SiteFooter.vue";
 
 export default {
   name: "App",
   components: {
     SiteHeader,
     SiteFooter,
-    ProductList,
-    ShoppingCart,
-  },
-  data() {
-    return {
-      cart: [], // Tableau pour stocker les articles du panier
-    };
-  },
-  methods: {
-    addToCart(product) {
-      const existingProduct = this.cart.find(
-        (item) =>
-          item.id === product.id && item.selectedColor.name === product.selectedColor.name
-      );
-
-      if (existingProduct) {
-        existingProduct.quantity += product.quantity || 1;
-      } else {
-        this.cart.push({ ...product, quantity: product.quantity || 1 });
-      }
-
-      // Sauvegarder dans le localStorage
-      localStorage.setItem("cart", JSON.stringify(this.cart));
-    },
-    updateCart(updatedCart) {
-      this.cart = updatedCart;
-
-      // Sauvegarder dans le localStorage
-      localStorage.setItem("cart", JSON.stringify(this.cart));
-    },
-  },
-  created() {
-    // Charger le panier depuis le localStorage au démarrage
-    const savedCart = localStorage.getItem("cart");
-    if (savedCart) {
-      this.cart = JSON.parse(savedCart);
-    }
   },
 };
 </script>
 
-
 <style>
-body {
-  margin: 0;
-  font-family: "Arial", sans-serif;
-  background-color: #f8f9fa;
-}
-main {
-  padding: 1rem;
-}
-#app {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-footer {
-  margin-top: auto;
-}
+/* Import global styles */
+@import "@/assets/css/styles.css";
 </style>
