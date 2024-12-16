@@ -62,7 +62,6 @@ Follow these steps to run the project locally:
 
 
 ### 1. Clone the repository:
-
 ```bash
 git clone https://github.com/Shadow9275/sportgearpro.git
 cd sportgearpro
@@ -163,9 +162,9 @@ This project is licensed under the **MIT License**.
 
 ## 👤 Author
 
-**Maéto Bouillet**  
+**Maéto BOUILLET, Nicolas GOUGE and Matthew THIRIOT-LESNE**  
 - GitHub: [Shadow9275](https://github.com/Shadow9275)
-- Email: [example@email.com](mailto:example@email.com)
+
 
 ---
 
@@ -174,18 +173,3 @@ If you have questions or suggestions, feel free to reach out or open an issue. �
 ```
 
 ---
-
-### **Explications :**
-1. **Live Demo** : Lien direct pour accéder à ton site hébergé sur GitHub Pages.
-2. **Features** : Liste claire des fonctionnalités principales.
-3. **Technologies** : Mentionne les outils clés utilisés (Vue.js, Bootstrap, etc.).
-4. **Screenshots** : Ajoute des captures d'écran pour illustrer les différentes pages.
-5. **Setup** : Instructions pour cloner, installer et exécuter le projet localement.
-6. **Deployment** : Étapes pour déployer sur GitHub Pages.
-7. **Folder Structure** : Structure détaillée pour guider les développeurs.
-8. **Contributing** : Guide pour contribuer au projet.
-9. **Acknowledgments** : Mentions pour les outils utilisés.
-
----
-
-Tu peux coller ce fichier **README.md** directement à la racine de ton projet pour une documentation claire et professionnelle. Si tu as besoin d'aide pour les captures d'écran ou d'autres ajouts, n'hésite pas à demander ! 🚀
