@@ -3,7 +3,7 @@
     <SiteHeader />
     <main class="py-4">
       <ProductList @add-to-cart="addToCart" />
-      <ShoppingCart :cart="cart" />
+      <ShoppingCart :cart="cart" @update-cart="updateCart" />
     </main>
     <SiteFooter />
   </div>
@@ -25,7 +25,7 @@ export default {
   },
   data() {
     return {
-      cart: [], // Tableau du panier
+      cart: [], // Tableau pour stocker les articles du panier
     };
   },
   methods: {
@@ -40,10 +40,27 @@ export default {
       } else {
         this.cart.push({ ...product, quantity: product.quantity || 1 });
       }
+
+      // Sauvegarder dans le localStorage
+      localStorage.setItem("cart", JSON.stringify(this.cart));
     },
+    updateCart(updatedCart) {
+      this.cart = updatedCart;
+
+      // Sauvegarder dans le localStorage
+      localStorage.setItem("cart", JSON.stringify(this.cart));
+    },
+  },
+  created() {
+    // Charger le panier depuis le localStorage au démarrage
+    const savedCart = localStorage.getItem("cart");
+    if (savedCart) {
+      this.cart = JSON.parse(savedCart);
+    }
   },
 };
 </script>
+
 
 <style>
 body {

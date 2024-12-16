@@ -1,8 +1,11 @@
 <template>
   <div class="container mt-4">
     <h2 class="text-center mb-4 text-primary">Nos Produits</h2>
+    <div class="filter-bar mb-3">
+      <input v-model="searchQuery" type="text" placeholder="Rechercher un produit..." class="form-control" />
+    </div>
     <div class="row">
-      <div v-for="product in products" :key="product.id" class="col-12 col-sm-6 col-md-4 mb-4">
+      <div v-for="product in filteredProducts" :key="product.id" class="col-12 col-sm-6 col-md-4 mb-4">
         <ProductItem :product="product" @add-to-cart="handleAddToCart" />
       </div>
     </div>
@@ -17,6 +20,7 @@ export default {
   components: { ProductItem },
   data() {
     return {
+      searchQuery: "",
       products: [
         {
           id: 1,
@@ -50,6 +54,13 @@ export default {
         },
       ],
     };
+  },
+  computed: {
+    filteredProducts() {
+      return this.products.filter((product) =>
+        product.name.toLowerCase().includes(this.searchQuery.toLowerCase())
+      );
+    },
   },
   methods: {
     handleAddToCart(product) {
