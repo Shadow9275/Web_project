@@ -1,30 +1,23 @@
+<script>
+import SiteHeader from './components/Header.vue'; // Ou SiteHeader.vue si tu as renommé le fichier
+import SiteFooter from "./components/Footer.vue";
+
+export default {
+  name: "App",
+  components: {
+    SiteHeader,
+    SiteFooter
+  },
+};
+</script>
+
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div>
+    <SiteHeader /> <!-- Utilise le nouveau nom -->
+    <div class="container">
+      <h1 class="text-center mt-4">Bienvenue sur SportGearPro</h1>
+      <p class="text-center">Découvrez le meilleur du matériel sportif.</p><br>
+    </div>
+    <SiteFooter />
+  </div>
 </template>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
