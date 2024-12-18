@@ -15,7 +15,7 @@
       <tbody>
         <tr v-for="(item, index) in cart" :key="index">
           <td>{{ item.name }}</td>
-          <td>{{ item.price }} €</td>
+          <td>{{ item.price }} $</td>
           <td>
             <input
               type="number"
@@ -26,7 +26,7 @@
               style="width: 70px;"
             />
           </td>
-          <td>{{ (item.price * item.quantity).toFixed(2) }} €</td>
+          <td>{{ (item.price * item.quantity).toFixed(2) }} $</td>
           <td>
             <button class="btn btn-danger btn-sm" @click="removeItem(index)">
               Remove
@@ -41,7 +41,7 @@
 
     <!-- Total global du panier -->
     <div v-if="cart.length > 0" class="text-end mt-3">
-      <h4>Total: {{ cartTotal }} €</h4>
+      <h4>Total: {{ cartTotal }} $</h4>
     </div>
   </div>
 </template>
