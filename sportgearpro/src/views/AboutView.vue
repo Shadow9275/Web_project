@@ -7,6 +7,10 @@
     <p class="text-center">
       Whether you're a professional athlete or a fitness enthusiast, you'll find everything you need to reach your goals.
     </p>
+    <br>
+    <p class="text-center">
+      By Matéo BOUILLET, Nicolas Gouge
+    </p>
     <div class="text-center mt-4">
       <router-link to="/catalog" class="btn btn-success">Explore Our Products</router-link>
     </div>
