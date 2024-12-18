@@ -162,7 +162,7 @@ This project is licensed under the **MIT License**.
 
 ## 👤 Author
 
-**Maéto BOUILLET, Nicolas GOUGE and Matthew THIRIOT-LESNE**  
+**Matéo BOUILLET, Nicolas GOUGE and Matthew THIRIOT-LESNE**  
 - GitHub: [Shadow9275](https://github.com/Shadow9275)
 
 

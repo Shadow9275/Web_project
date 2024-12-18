@@ -9,7 +9,7 @@
     </p>
     <br>
     <p class="text-center">
-      By Matéo BOUILLET, Nicolas Gouge
+      By Matéo BOUILLET, Nicolas GOUGE and Matthew THIRIOT-LESNE
     </p>
     <div class="text-center mt-4">
       <router-link to="/catalog" class="btn btn-success">Explore Our Products</router-link>
