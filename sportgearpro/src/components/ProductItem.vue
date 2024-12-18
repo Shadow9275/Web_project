@@ -1,14 +1,14 @@
 <template>
   <div class="product-card card mb-3">
-    <!-- Image du produit en fonction de la couleur sélectionnée -->
+    <!-- Product image based on selected color -->
     <img :src="selectedImage" class="card-img-top" :alt="product.name" />
 
-    <!-- Détails du produit -->
+    <!-- Product details -->
     <div class="card-body text-center">
       <h5 class="card-title">{{ product.name }}</h5>
       <p class="card-text">{{ product.price }} $</p>
 
-      <!-- Sélection des couleurs -->
+      <!-- Color selection -->
       <div class="colors mb-2">
         <span
           v-for="(color, index) in product.colors"
@@ -19,10 +19,10 @@
         ></span>
       </div>
 
-      <!-- Bouton pour ajouter au panier -->
+      <!-- Add to cart button -->
       <button class="btn btn-primary" @click="addToCart">Add to Cart</button>
 
-      <!-- Message de confirmation -->
+      <!-- Confirmation message -->
       <p v-if="showMessage" class="text-success mt-2">Product added to cart!</p>
     </div>
   </div>
@@ -39,19 +39,19 @@ export default {
   },
   data() {
     return {
-      selectedColor: this.product.colors[0], // Couleur par défaut
+      selectedColor: this.product.colors[0], // Default color
       showMessage: false,
     };
   },
   computed: {
     selectedImage() {
-      // Retourne l'image correspondant à la couleur sélectionnée
+      // Returns the image corresponding to the selected color
       return this.selectedColor.image;
     },
   },
   methods: {
     selectColor(color) {
-      this.selectedColor = color; // Met à jour la couleur sélectionnée
+      this.selectedColor = color; // Updates the selected color
     },
     addToCart() {
       let cart = JSON.parse(localStorage.getItem("cart")) || [];

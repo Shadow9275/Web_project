@@ -36,7 +36,7 @@
       </tbody>
     </table>
 
-    <!-- Affichage si le panier est vide -->
+    <!-- Display if basket is empty -->
     <p v-else class="text-center">Your cart is empty.</p>
 
     <!-- Total global du panier -->
@@ -51,7 +51,7 @@ export default {
   name: "ShoppingCart",
   data() {
     return {
-      cart: [], // Contient les produits du panier
+      cart: [], // Contains basket products
     };
   },
   created() {
@@ -65,15 +65,15 @@ export default {
     },
   },
   methods: {
-    // Charger le panier depuis localStorage
+    // Load basket from localStorage
     loadCart() {
       this.cart = JSON.parse(localStorage.getItem("cart")) || [];
     },
-    // Mettre à jour localStorage après un changement de quantité
+    // Update localStorage after a quantity change
     updateCart() {
       localStorage.setItem("cart", JSON.stringify(this.cart));
     },
-    // Supprimer un produit du panier
+    // Remove a product from your basket
     removeItem(index) {
       this.cart.splice(index, 1);
       this.updateCart();
